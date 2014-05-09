@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Informações JVM</title>
+		<script type="text/javascript" src="https://www.java.com/js/deployJava.js"></script>
+	</head>
+	<body>
+		<div id="applet"></div>
+		<script>
+			var applet = document.getElementById('applet');
+			var java = '<p>Navegador: ' + deployJava.browserName + ' ('
+					+ deployJava.browserName2 + ')</p><p>JREs: '
+					+ deployJava.getJREs() + '</p><p>Java 1.7 presente: ';
+			if (deployJava.versionCheck('1.7+')) {
+				java += 'Sim';
+			} else {
+				java += 'Não';
+			}
+			java += '</p><p>Java 1.6.0_10+ presente: ';
+			if (deployJava.versionCheck('1.6.0_10+')) {
+				java += 'Sim';
+			} else {
+				java += 'Não';
+			}
+			java += '</p>';
+			applet.innerHTML += java;
+		</script>
+	</body>
+</html>
